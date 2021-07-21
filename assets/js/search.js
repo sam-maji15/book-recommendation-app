@@ -2,7 +2,7 @@ const api_key = 'GBQj6GfbatyInuhrwsRVPykwjiCAdaQl'
 
 let search_query = (window.location.search.replace('?q=', '') === '') ? undefined: window.location.search.replace('?q=','')
 
-if (search_query !== '') getSearchResults(search_query)
+if (typeof search_query !== 'undefined') getSearchResults(search_query)
 
 function getSearchResults(query) {
   fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
@@ -42,13 +42,3 @@ function createSearchElement(data, id) {
   container.appendChild(title)
   con_searchResults.appendChild(container)
 }
-
-
-
-//best sellers
-fetch('https://api.nytimes.com/svc/books/v3/lists.json?list-name=hardcover-fiction&api-key=' + apiKey, {method: 'get'}).then(response => {
-  return response.json();
-})
-.then(json => {
-  console.table(json);
-});
