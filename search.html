@@ -20,13 +20,25 @@
   <input type="text" placeholder="Search a book" class="inp-search" id="inp-search" />
   <button class="btn-search" id="btn-search" type="submit">
     <ion-icon name="search-outline"></ion-icon>
-    </button>
+  </button>
+  <button class="btn-search" id="btn-recom" type="submit">
+    <ion-icon name="grid-outline"></ion-icon>
+  </button>
+  <button class="btn-search" id="btn-recom" type="submit">
+    <ion-icon name="filter-outline"></ion-icon>
+  </button>
+  
   </div>
   
   
   <div id="con-search-results"></div>
+  <button class="inp-search" id="btn-load-more" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 1rem;">Load more</button>
+  
+  
+  <a id='a-fake' style="display: none;"></a>
 
-  <script src="./assets/js/search.js"></script>
+  <!-- <script src="./assets/js/search.js"></script> -->
+  <script src="./assets/js/async_fetch1.js" type="module" charset="utf-8"></script>
 
 </body>
 </html>
