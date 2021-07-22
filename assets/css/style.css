@@ -21,6 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -36,10 +37,6 @@ a {
 div {
   display: flex;
   flex-flow: column;
-}
-
-div>a {
-  margin: 1rem 0;
 }
 
 .con-book-item>img {
@@ -87,10 +84,12 @@ ul {
   padding: 1rem;
 }
 .con-book-item {
+  height: fit-content;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+  padding: 1rem 0;
 }
 
 /* recommnedation.html styles */
@@ -147,6 +146,9 @@ ul {
 .btn-search {
   height: 2rem;
   width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 1px solid rgba(0, 0, 0, 0.11);
   border-radius: 8px;
