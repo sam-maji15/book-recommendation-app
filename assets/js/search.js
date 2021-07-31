@@ -1,52 +1,53 @@
-const api_key = 'GBQj6GfbatyInuhrwsRVPykwjiCAdaQl'
+import AsyncFetch from './async_fetch.js'
 
-let search_query = (window.location.search.replace('?q=', '') === '') ? undefined: window.location.search.replace('?q=','')
+let searchData = []
+let pageStartIndex = 0;
+let itemsLeft = 0;
 
-if (typeof search_query !== 'undefined') getBookSearchData(search_query)
-
-function getSearchResults(query) {
-  fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
-  .then(response => {
-    if (response.ok) return response.json()
-    else throw new Error('404 - page not found')
-  })
-  .then(data => {
-    con_searchResults.innerHTML = ''
-    data = data.items.map((item,index) => {
-      createSearchElement(item.volumeInfo, data.items[index].id)
-      return item.volumeInfo
-    }) // data obj becomes an array
-  })
-}
+let search_query = (window.location.search === '') ? '' : window.location.search.replace('?q=', '')
 
 const inp_search = document.getElementById('inp-search')
 const btn_search = document.getElementById('btn-search')
+const btn_loadMore = document.getElementById('btn-load-more')
+const a_fake = document.getElementById('a-fake')
+
+let asyncFetch = new AsyncFetch()
+
+
+
+
+//IntersectionObserver
+const io_options = {
+  root: null,
+  rootMargins: '0px',
+  threshold: '0.5'
+}
+
+const io = new IntersectionObserver(io_callback, io_options)
+
+io.observe(document.getElementById('btn-load-more'))
+
+function io_callback(entries, observer) {
+if (entries[0].isIntersecting && pageStartIndex<=20 && typeof search_query !== undefined) {
+    asyncFetch.getBookSearchResults('?q='+search_query, pageStartIndex)
+    pageStartIndex += 10
+  }
+else if(pageStartIndex>20) {
+  io.disconnect()
+  btn_loadMore.innerText = `More ${asyncFetch.getSearchResultsNotDisplayedCount(pageStartIndex)} results`
+}
+
 btn_search.onclick = () => {
-  search_query = inp_search.value.replace(' ', '+')
-  getSearchResults(search_query)
+  pageStartIndex = 0
+  document.getElementById('con-search-results').innerHTML = ''
+  search_query = '?q='+inp_search.value
+  console.log(search_query)
+  asyncFetch.getBookSearchResults(search_query, pageStartIndex)
+}
 }
 
 
-const con_searchResults = document.getElementById('con-search-results')
-function createSearchElement(data, id) {
-  const container = document.createElement('DIV')
-  container.className = 'con-book-item'
-  
-  const image = document.createElement('IMG')
-  const title =  document.createElement('A')
-  
-  image.src = (typeof data.imageLinks !== 'undefined') ? data.imageLinks.smallThumbnail : '#'
-  
-  data.title = parseValue(data.title)
-  data.subtitle = parseValue(data.subtitle)
-  
-  title.innerText = `${data.title} ${data.subtitle} ${data.authors.toString()}`
-  title.href = `./index.html?q=${id}`
-  container.appendChild(image)
-  container.appendChild(title)
-  con_searchResults.appendChild(container)
-}
-
-function parseValue(str) {
-  return (typeof str === 'string') ? ' ' + str + ' -' : ''
+btn_loadMore.onclick = () => {
+  pageStartIndex += 20
+  asyncFetch.getBookSearchResults(search_query, pageStartIndex)
 }

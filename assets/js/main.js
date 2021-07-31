@@ -74,20 +74,24 @@ function getBooksDataById(query) {
 
 const btn_search = document.getElementById('btn-search')
 const inp_search = document.getElementById('inp-search')
+let search_query = (window.location.search === '') ? '' : window.location.search.replace('?q=', '')
+
+if (search_query !== '') {
+  // cache query
+  localStorage.setItem('last-search', search_query)
+}
+
+search_query = (typeof localStorage.getItem('last-search') === 'null')? '' : localStorage.getItem('last-search')
+
+getBooksData(search_query)
 
 btn_search.onclick = () => {
-  getBooksData(inp_search.value.trim().replace(' ', '+'))
+  openLink(`./index.html?q=${inp_search.value}`)
 }
-getBooksData(window.location.search.replace('?q=', ''))
-//btn_search.click()
 
-
-fetch('https://www.googleapis.com/books/v1/volumes?q=hooked')
-.then(res => {
-  return res.json()
-})
-.then(data => {
-  data.items.map(item => {
-    console.table(item.volumeInfo)
-  })
-})
+const a_fake = document.getElementById('a-fake')
+// opens a link on the same browser, on then same tab (same tab group for chrome)
+function openLink(link) {
+  a_fake.href = link
+  a_fake.click()
+}

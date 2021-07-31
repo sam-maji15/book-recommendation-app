@@ -42,15 +42,6 @@ function getAllCategories() {
   })
 }
 
-function copyToClipboard(text) {
-  var input = document.body.appendChild(document.createElement("input"));
-  input.value = text;
-  input.focus();
-  input.select();
-  document.execCommand('copy');
-  input.parentNode.removeChild(input);
-}
-
 function createCategoryItem(text, text_encoded) {
   const title = document.createElement('A')
   title.innerText = text

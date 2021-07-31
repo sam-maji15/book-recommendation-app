@@ -3,6 +3,10 @@ export default class CustomElements {
     this.con_searchResults = document.getElementById('con-search-results')
   }
   
+  createBookMasterSearchResult() {
+    
+  }
+  
   createBookSearchResultElement(data, id) {
     const container = document.createElement('DIV')
     container.className = 'con-book-item'
