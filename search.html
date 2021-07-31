@@ -16,18 +16,20 @@
 
 <body>
   
-  <div class="con-search">
-  <input type="text" placeholder="Search a book" class="inp-search" id="inp-search" />
+  <div>
+  <form class="con-search">
+  <input type="text" placeholder="Search a book" class="inp-search" name="q" id="inp-search" />
   <button class="btn-search" id="btn-search" type="submit">
     <ion-icon name="search-outline"></ion-icon>
   </button>
-  <button class="btn-search" id="btn-recom" type="submit">
+  <button class="btn-search" id="btn-recom">
     <ion-icon name="grid-outline"></ion-icon>
   </button>
-  <button class="btn-search" id="btn-recom" type="submit">
+  
+  <button class="btn-search" id="btn-recom" >
     <ion-icon name="filter-outline"></ion-icon>
   </button>
-  
+  </form>
   </div>
   
   
@@ -38,7 +40,7 @@
   <a id='a-fake' style="display: none;"></a>
 
   <!-- <script src="./assets/js/search.js"></script> -->
-  <script src="./assets/js/async_fetch1.js" type="module" charset="utf-8"></script>
+  <script src="./assets/js/search.js" type="module" charset="utf-8"></script>
 
 </body>
 </html>
