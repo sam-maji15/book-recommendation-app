@@ -34,6 +34,11 @@ body {
 a {
   text-decoration: none;
 }
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
 div {
   display: flex;
   flex-flow: column;
@@ -50,21 +55,32 @@ div {
     0 6px 8px rgba(0, 0, 0, 0.11);
 }
 
+.flex-even-col {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
 ul {
   list-style: none;
 }
 
 
 .block-01 {
-  background: red;
 }
+
+
+/* index html */
 #con-book-data {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   flex-flow: row-reverse;
-  background: green;
+  padding: 1rem 0;
 }
 #ul-book-data {
-  background: blue;
   font-size: 1rem;
   display: flex;
   flex-flow: column;
@@ -77,6 +93,13 @@ ul {
 }
 #con-book-thumbnail > img {
   border-radius: 8px;
+  box-shadow: var(--soft-shadow);
+}
+#p-book-desc {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:95vw;
 }
 
 /* search.html styles */
