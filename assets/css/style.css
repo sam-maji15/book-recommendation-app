@@ -239,7 +239,7 @@ ul {
 /* general style for input element */
 .input_search {
   height: var(--btnHt);
-  max-width: 75vw;
+  max-width: calc(75vw - var(--btnHt));
   border-radius: 4px 0 0 4px;
   border: none;
   outline: none;
@@ -259,6 +259,7 @@ ul {
 
 /* style for other buttons */
 .btn_icon_con {
+  font-size: 1.2rem;
   background: var(--sec-col01);
   color: var(--col-bgInput);
   height: var(--btnHt);
@@ -266,6 +267,16 @@ ul {
   border: none;
   border-radius: 50%;
   margin: 0 0.25rem;
+}
+.btn_load_more {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  height: var(--btnHt);
+  width: 50vw;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(var(--themeCol-02), var(--themeCol-03))
 }
 
 
@@ -287,10 +298,32 @@ ul {
 
 /* drop-down menu style */
 .con_drop_down {
+  background: none;
   display: none;
   position: absolute;
-  width: 50vw;
-  height: 40vh; 
-  background-color: red;
-  transition: top 400ms;
+  width: fit-content;
+  height: fit-content;
+}
+.con_drop_down_content {
+  border-radius: 4px;
+  box-shadow: var(--soft-shadow-min);
+  background: var(--col-bgInput);
+  padding: 1rem;
+}
+.arrow_up {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ width: 0;
+ height: 0;
+ border-width: 0 8px 13.9px 8px;
+ border-color: transparent transparent var(--col-bgInput) transparent;
+ border-style: solid;
+}
+.ul_drop_down {
+  width: fit-content;
+  height: fit-content;
+}
+.li_drop_down {
+  
 }
