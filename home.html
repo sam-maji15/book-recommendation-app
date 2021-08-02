@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    
+  <link rel="stylesheet" href="./assets/css/style.css" type="text/css" media="all" />
+    
+  <!-- ionic icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+</head>
+
+<body>
+
+  <!-- top bar -->
+  <div>
+    <!-- header -->
+    <div class="header flex_center" style="margin: 1.75rem 0; justify-content: flex-end">
+      <div class="flex_center">
+        <button class="btn_icon_con flex_center" type="button">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        
+        <button class="btn_icon_con flex_center" type="button">
+          <ion-icon name="sunny"></ion-icon>
+        </button>
+        
+      </div>
+    </div>
+    
+    <!-- search bar -->
+    <div class="header">
+      <form action="home.html" class="flex_center">
+      <input class="input_search flex_center" type="text" name="q" placeholder="Search something"/>
+        
+      <button class="btn_inpSubmit flex_center" type="submit">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      
+      </form>
+    </div>
+  </div>
+  
+  <!-- featured -->
+  <main>
+  <div class="flex_center"
+    style="height: 40vh; width: 100vw;">
+    <div class="carousel"></div>
+  </div>
+  
+  <!-- popular books -->
+  <div class="flex_center_col"
+    style="width: 100vw;">
+    <div class="header">
+    <h2>Popular</h2>
+    </div>
+    
+    <div class="con_recom_grid">
+      <div class="book_item_preview"></div>
+      <div class="book_item_preview"></div>
+      <div class="book_item_preview"></div>
+
+    </div>
+  </div>
+  
+  </main>
+  
+  <script src="home.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

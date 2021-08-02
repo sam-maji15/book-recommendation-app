@@ -18,18 +18,20 @@
   
   <div>
   <form class="con-search">
-  <input type="text" placeholder="Search a book" class="inp-search" name="q" id="inp-search" />
-  <button class="btn-search" id="btn-search" type="submit">
-    <ion-icon name="search-outline"></ion-icon>
-  </button>
-  <button class="btn-search" id="btn-recom">
-    <ion-icon name="grid-outline"></ion-icon>
+  <input type="text" placeholder="Search a book" class="input_search" name="q" id="inp-search" style="width: 60vw"/>
+  
+  <button class="btn_inpSubmit flex_center" id="btn_filter" type="button" style="border-radius: 0">
+    <ion-icon name="filter"></ion-icon>
   </button>
   
-  <button class="btn-search" id="btn-recom" >
-    <ion-icon name="filter-outline"></ion-icon>
+  <button class="btn_inpSubmit flex_center" id="btn-search" type="submit">
+    <ion-icon name="search" type="submit"></ion-icon>
   </button>
+  
   </form>
+  <div class="con_drop_down">
+    
+  </div>
   </div>
   
   
@@ -41,6 +43,8 @@
 
   <!-- <script src="./assets/js/search.js"></script> -->
   <script src="./assets/js/search.js" type="module" charset="utf-8"></script>
+  
+  <script src="./assets/js/menu.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
 </html>
