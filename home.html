@@ -34,14 +34,33 @@
     
     <!-- search bar -->
     <div class="header">
-      <form action="home.html" class="flex_center">
+      <form action="search.html" class="flex_center">
       <input class="input_search flex_center" type="text" name="q" placeholder="Search something"/>
+      
+       
+      <button class="btn_inpSubmit flex_center" id="btn_filter" type="button">
+        <ion-icon name="filter"></ion-icon>
+      </button>
         
       <button class="btn_inpSubmit flex_center" type="submit">
         <ion-icon name="search"></ion-icon>
       </button>
-      
       </form>
+      
+      <!-- drop down menu -->
+      <div class="con_drop_down">
+        <div class="arrow_up"></div>
+    
+        <div class="con_drop_down_content">
+        <h3>Filter by: </h3>
+    
+        <ul class="ul_drop_down">
+        <li class="li_drop down">Popularity</li>
+        <li class="li_drop down">Rating</li>
+        </ul>
+        </div>
+      </div>
+      
     </div>
   </div>
   
@@ -70,6 +89,8 @@
   </main>
   
   <script src="home.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script src="./assets/js/menu.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
